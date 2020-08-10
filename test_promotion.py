@@ -6,6 +6,7 @@ Unit tests for simple Python application
 import promotion
 import pytest
 from webtest import TestApp
+import cx_Oracle
 
 
 class TestPromotion:
@@ -34,3 +35,16 @@ def test_response_shold_be_ok(application):
 def test_addition(application):
     response = application.get('/addition/1000/200')
     assert b'1200' == response.body
+
+
+@pytest.fixture(scope='session')
+def test_connection():
+    DBUSER = 'hr'
+    DBPASS = 'WelCom3#2020_'
+    DBHOST = 'olif-host.sub08091537440.olifvcn.oraclevcn.com'
+    DBSERV = 'pdb1.sub08091537440.olifvcn.oraclevcn.com'
+    conn_string = DBUSER + '/' + DBPASS + '@//' + DBHOST + '/' + DBSERV
+    connection = cx_Oracle.connect(conn_string)
+    response = connection.version
+    assert response == '19.6.0.0.0'
+    connection.close()
