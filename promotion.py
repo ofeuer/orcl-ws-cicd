@@ -30,7 +30,7 @@ def conn():
 
 if __name__ == '__main__':
     DBUSER = 'hr'
-    DBPASS = 'WelCom3#2020_' 
+    DBPASS = 'WelCom3#2020_'
     DBHOST = 'olif-host.sub08091537440.olifvcn.oraclevcn.com'
     DBSERV = 'pdb1.sub08091537440.olifvcn.oraclevcn.com'
     conn_string = DBUSER + '/' + DBPASS + '@//' + DBHOST + '/' + DBSERV
