@@ -2,7 +2,7 @@
 # and the .template extension removed by the bash-template Wercker step.
 # See wercker.yml.
 
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: orcl-ws-app
